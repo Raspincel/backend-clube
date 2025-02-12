@@ -31,9 +31,9 @@ app.use('/reading', activity);
 app.use(' /lending', lending);
 app.use('/review', review);
 app.use('/support', support);
+app.use('/assignments', assignments)
 app.use('/posts', posts);
 app.use('/collections', collections);
-app.use('/assignments', assignments)
 
 app.use(errorHandler);
 
