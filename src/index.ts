@@ -30,8 +30,8 @@ app.use('/books', book);
 app.use('/reading', activity);
 app.use(' /lending', lending);
 app.use('/review', review);
-app.use('/support', support);
 app.use('/assignments', assignments)
+app.use('/support', support);
 app.use('/posts', posts);
 app.use('/collections', collections);
 
