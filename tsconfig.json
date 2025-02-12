@@ -20,7 +20,7 @@
   },
   "include": [
     "src",
-    "src/app.ts", 
+    "src/index.ts", 
     "src/server.ts"  
   ],
   "exclude": [
