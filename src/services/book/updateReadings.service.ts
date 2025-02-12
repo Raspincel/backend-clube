@@ -1,19 +1,14 @@
 import prisma from '../../database/db';
 
 export default async function updateReadingsService(bookId, userId) {
-  prisma.readingTracking.upsert({
+  prisma.readingTracking.update({
     where: {
       userId_bookId: {
         bookId,
         userId
       }
     },
-    create: {
-      bookId, 
-      userId,
-      lastRead: new Date() 
-    },
-    update: {
+    data: {
       lastRead: new Date()
     }
   });
