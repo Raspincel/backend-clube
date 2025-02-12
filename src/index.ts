@@ -28,9 +28,9 @@ app.use('/user', user);
 app.use('/admin', admin);
 app.use('/books', book);
 app.use('/reading', activity);
+app.use(' /lending', lending);
 app.use('/review', review);
 app.use('/support', support);
-app.use('/lending', lending);
 app.use('/posts', posts);
 app.use('/collections', collections);
 app.use('/assignments', assignments)
