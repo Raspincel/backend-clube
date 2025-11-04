@@ -3,36 +3,36 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
   // directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id                String              @id @default(uuid())
-  name              String
-  email             String              @unique
-  password          String
-  avatar            String?
-  approved          Boolean             @default(false)
-  createdAt         DateTime            @default(now())
-  updatedAt         DateTime            @default(now())
-  role              Role                @default(USER)
-  Assignment        Assignment[]
-  AssignmentComment AssignmentComment[]
-  AssignmentLikes   AssignmentLikes[]
-  borrowed          BorrowedBook[]
-  Collection        Collection[]
-  FavoritedBooks    FavoritedBooks[]
-  Post              Post[]
-  PostComment       PostComment[]
-  PostLikes         PostLikes[]
-  reading           ReadingTracking[]
-  RequestLending    RequestLending[]
-  reviews           Review[]
-  Turma             Turma[]
-  TurmaAluno        TurmaAluno[]
-  registeredLendings BorrowedBook[] @relation("ProfessorLendings")
+  id                 String              @id @default(uuid())
+  name               String
+  email              String              @unique
+  password           String
+  avatar             String?
+  approved           Boolean             @default(false)
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @default(now())
+  role               Role                @default(USER)
+  Assignment         Assignment[]
+  AssignmentComment  AssignmentComment[]
+  AssignmentLikes    AssignmentLikes[]
+  borrowed           BorrowedBook[]
+  Collection         Collection[]
+  FavoritedBooks     FavoritedBooks[]
+  Post               Post[]
+  PostComment        PostComment[]
+  PostLikes          PostLikes[]
+  reading            ReadingTracking[]
+  RequestLending     RequestLending[]
+  reviews            Review[]
+  Turma              Turma[]
+  TurmaAluno         TurmaAluno[]
+  registeredLendings BorrowedBook[]      @relation("ProfessorLendings")
 }
 
 model Book {
@@ -99,7 +99,7 @@ model BorrowedBook {
   id                String             @id @default(uuid())
   userId            String
   bookId            String
-  professorId       String?            // ID do professor que registrou o empréstimo
+  professorId       String? // ID do professor que registrou o empréstimo
   borrowDate        DateTime
   returnDate        DateTime
   createdAt         DateTime           @default(now())
@@ -196,6 +196,7 @@ model Collection {
 model Assignment {
   id          String              @id @default(uuid())
   content     String
+  link        String?
   professorId String
   createdAt   DateTime            @default(now())
   updatedAt   DateTime            @default(now())

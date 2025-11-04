@@ -5,7 +5,13 @@ export default async function fetchAllAssignmentsService() {
     where: {
       deletedAt: null,
     },
-    include: {
+    select: {
+      id: true,
+      content: true,
+      link: true,
+      createdAt: true,
+      updatedAt: true,
+      professorId: true,
       professor: {
         select: {
           id: true,

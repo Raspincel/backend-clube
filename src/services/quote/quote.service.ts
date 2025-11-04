@@ -24,9 +24,9 @@ export class QuoteService {
 
       // Fallback para citação padrão
       return {
-        quote: "A leitura é uma viagem para lugares que você nunca visitou.",
-        author: "Anônimo",
-        source: "Sabedoria Popular",
+        quote: "A leitura é, provavelmente, uma outra maneira de estar em um lugar.",
+        author: "José Saramago",
+        source: "Único escritor de língua portuguesa a receber o Prêmio Nobel de Literatura (1998)",
       };
     }
   }

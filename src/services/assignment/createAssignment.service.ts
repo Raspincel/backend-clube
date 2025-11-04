@@ -1,5 +1,18 @@
-import prisma from '../../database/db';
+import prisma from "../../database/db";
 
-export default async function createAssignmentService(content: string, professorId: string) {
-  await prisma.assignment.create({ data: { content, professorId }, select: { id: true } });
+type CreateAssignmentInput = {
+  content: string;
+  professorId: string;
+  link?: string;
+};
+
+export default async function createAssignmentService({
+  content,
+  professorId,
+  link,
+}: CreateAssignmentInput) {
+  await prisma.assignment.create({
+    data: { content, professorId, link },
+    select: { id: true },
+  });
 }

@@ -1,4 +1,4 @@
-import prisma from '../../database/db';
+import prisma from "../../database/db";
 
 export default async function fetchAssignmentService(id: string) {
   const post = await prisma.assignment.findFirst({
@@ -8,24 +8,25 @@ export default async function fetchAssignmentService(id: string) {
     },
     select: {
       content: true,
+      link: true,
       createdAt: true,
       professor: {
         select: {
           id: true,
           name: true,
           avatar: true,
-        }
+        },
       },
       _count: {
         select: {
           likes: {
             where: {
               liked: true,
-            }
-          }
-        }
-      }
-    }
+            },
+          },
+        },
+      },
+    },
   });
 
   return {

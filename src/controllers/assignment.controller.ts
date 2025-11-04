@@ -12,10 +12,17 @@ import deleteAssignmentService from "../services/post/deleteAssignment.service";
 import createCommentService from "../services/assignment/createComment.service";
 
 export async function createAssignment(req: Request, res: Response) {
-  const { content } = req.body;
+  const { content, link } = req.body as {
+    content: string;
+    link?: string | null;
+  };
   const { id } = req.user;
 
-  await createAssignmentService(content, id!);
+  await createAssignmentService({
+    content,
+    link: link ?? undefined,
+    professorId: id!,
+  });
 
   res.sendStatus(201);
 }
